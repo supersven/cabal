@@ -143,7 +143,7 @@ jobs:
             ./out/*
 
   build-linux-32bit:
-    name: Build linux binaries (32bit)
+    name: Linux (32bit static)
     runs-on: ubuntu-latest
     env:
       TARBALL_EXT: tar.xz
@@ -176,7 +176,7 @@ jobs:
             ./out/*
 
   build-arm:
-    name: Build ARM binary
+    name: ARM
     runs-on: ${{ matrix.os }}
     env:
       TARBALL_EXT: tar.xz
@@ -190,11 +190,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: [self-hosted, Linux, ARM64]
-            ARCH: ARM
+          - ARCH: ARM
+            os: [self-hosted, Linux, ARM64]
             ARTIFACT: "armv7-linux-ubuntu20"
-          - os: [self-hosted, Linux, ARM64]
-            ARCH: ARM64
+          - ARCH: ARM64
+            os: [self-hosted, Linux, ARM64]
             ARTIFACT: "aarch64-linux-ubuntu20"
     steps:
       - uses: docker://arm64v8/ubuntu:focal
@@ -237,7 +237,7 @@ jobs:
             ./out/*
 
   build-mac-x86_64:
-    name: Build binary (Mac x86_64)
+    name: Darwin (x86_64)
     runs-on: macOS-11
     env:
       MACOSX_DEPLOYMENT_TARGET: 10.13
@@ -267,7 +267,7 @@ jobs:
             ./out/*
 
   build-mac-aarch64:
-    name: Build binary (Mac aarch64)
+    name: Darwin (aarch64)
     runs-on: [self-hosted, macOS, ARM64]
     env:
       MACOSX_DEPLOYMENT_TARGET: 10.13
@@ -300,7 +300,7 @@ jobs:
             ./out/*
 
   build-win:
-    name: Build binary (Win)
+    name: Windows
     runs-on: windows-latest
     env:
       ADD_CABAL_ARGS: ""
