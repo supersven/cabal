@@ -9,4 +9,6 @@ packages:
 tests: False
 benchmarks: False
 
-index-state: hackage.haskell.org 2024-06-17T00:00:01Z
+index-state: hackage.haskell.org 2024-07-20T00:00:01Z
+
+
